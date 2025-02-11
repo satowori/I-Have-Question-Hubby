@@ -73,8 +73,35 @@ function displayCatHeart() {
         imageContainer.appendChild(catHeartImage);
         // Hide the options container
         document.getElementById('options').style.display = 'none';
+
+        setTimeout(() => {
+            document.getElementById('extra-content').style.display = 'block';
+        }, 1000);
     };
 }
+document.addEventListener('DOMContentLoaded', function() {
+    let count = 1;
+    const orderLabels = ["first", "second", "third", "fourth", "fifth"];
+    
+    document.querySelectorAll('.activity-button').forEach(button => {
+        button.addEventListener('click', function() {
+            if (count < orderLabels.length) {
+                this.remove(); // Remove the clicked button
+                document.getElementById('new-question').innerText = `What do you want to do ${orderLabels[count]}?`;
+                count++;
+            } else {
+                document.getElementById('new-question').innerText = "Enjoy your time together! 💖";
+                document.getElementById('activity-buttons').style.display = 'none';
+            }
+        });
+    });
+
+    document.getElementById('exit-button').addEventListener('click', function() {
+        document.getElementById('extra-content').style.display = 'none';
+        document.getElementById('image-container').innerHTML = ''; // Clear the cat gif
+        document.body.innerHTML = "<h1>Goodbye! 💕</h1>"; // Show exit message
+    });
+});
 
 // Display the cat.gif initially
 displayCat();
