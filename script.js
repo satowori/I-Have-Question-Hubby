@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('new-question').innerText = `What do you want to do ${orderLabels[count]}?`;
                 count++;
             } else {
-                document.getElementById('new-question').innerText = "Enjoy your time together! 💖";
+                document.getElementById('new-question').innerText = "YAAY! I'M SO EXCITED :3 <3";
                 document.getElementById('activity-buttons').style.display = 'none';
             }
         });
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('exit-button').addEventListener('click', function() {
         document.getElementById('extra-content').style.display = 'none';
         document.getElementById('image-container').innerHTML = ''; // Clear the cat gif
-        document.body.innerHTML = "<h1>Goodbye! 💕</h1>"; // Show exit message
+        document.getElementById('more-content').style.display = 'block';
     });
 });
 
